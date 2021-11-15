@@ -4,8 +4,8 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for iast_project_report
 -- ----------------------------
-DROP TABLE IF EXISTS `iast_project_report`;
-CREATE TABLE `iast_project_report` (
+
+CREATE TABLE IF NOT EXISTS `iast_project_report` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL DEFAULT '0',
   `project_id` int(11) NOT NULL DEFAULT '0' COMMENT '项目id',
@@ -29,7 +29,7 @@ INSERT IGNORE INTO `django_celery_beat_periodictask`(`name`, `task`, `args`, `kw
 INSERT IGNORE INTO iast_message_type (id, name) SELECT 1, 'report' FROM DUAL WHERE NOT EXISTS (SELECT `id` FROM iast_program_language WHERE `id` = 1 AND `name` = 'report');
 ALTER TABLE iast_agent ADD is_audit int(11) DEFAULT 0 NOT NULL COMMENT '0:未审核；1：已审核';
 
-INSERT INTO iast_document (title, url, weight, `language`, title_en, title_zh, url_en, url_zh) VALUES('PHP Agent快速部署', 'https://doc2.dongtai.io/zh/02_start/03_agent.html#php-agent', 99, 'PHP', 'PHP Agent QuickStart', 'PHP Agent快速部署', 'https://doc2.dongtai.io/en/02_start/03_agent.html#php-agent', 'https://doc2.dongtai.io/zh/02_start/03_agent.html#php-agent');
+INSERT IGNORE INTO iast_document (title, url, weight, `language`, title_en, title_zh, url_en, url_zh) VALUES('PHP Agent快速部署', 'https://doc2.dongtai.io/zh/02_start/03_agent.html#php-agent', 99, 'PHP', 'PHP Agent QuickStart', 'PHP Agent快速部署', 'https://doc2.dongtai.io/en/02_start/03_agent.html#php-agent', 'https://doc2.dongtai.io/zh/02_start/03_agent.html#php-agent');
 
 -- ----------------------------
 -- Java Agent Hook rule

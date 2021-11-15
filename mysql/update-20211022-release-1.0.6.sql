@@ -1,6 +1,6 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS=0;
-CREATE TABLE `iast_message` (
+CREATE TABLE IF NOT EXISTS `iast_message` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `message` varchar(512) NOT NULL DEFAULT '',
   `relative_url` varchar(512) NOT NULL DEFAULT '',
@@ -12,12 +12,12 @@ CREATE TABLE `iast_message` (
   PRIMARY KEY (`id`)
 ); 
 
-CREATE TABLE `iast_message_type` (
+CREATE TABLE IF NOT EXISTS `iast_message_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 );
-INSERT INTO iast_profile
+INSERT IGNORE INTO iast_profile
 (`key`, value)
 VALUES('cpu_limit', '60');
 ALTER TABLE iast_profile 
