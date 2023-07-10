@@ -137,5 +137,9 @@ INSERT INTO web_role_url_relation
 (role_id, url_id)
 VALUES(6, 63);
 
+UPDATE iast_strategy_user
+SET name='插桩测试标准模板', content='1,2,3,4,5,6,7,8,16,18,20,21,25,27,33,34,35,36,14,26,9,10,11,12,13,15,17,19,22,23,24,28,29,30,31,32,37,39,38,40,41', user_id=1, status=1, created_at='2020-12-16 21:32:34', department_id=1
+WHERE id=5;
+
 
 SET FOREIGN_KEY_CHECKS=1;
