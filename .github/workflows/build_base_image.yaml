@@ -8,6 +8,13 @@ on:
       - develop
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: Bidaya0/sql-lint-in-action@v0.0.1
+        with:
+          path: '.'
   build:
     if: ${{ github.event_name == 'push' && github.repository_owner == 'HXSecurity' }}
     runs-on: ubuntu-latest
