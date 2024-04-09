@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: Bidaya0/sql-lint-in-action@v0.0.1
+        uses: rodrigoargumedo/sql-lint-in-action@node20-upgrade
         with:
           path: '.'
   build:
