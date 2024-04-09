@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: rodrigoargumedo/sql-lint-in-action@node20-upgrade
         with:
-          path: './mysql/'
+          path: '.'
   build:
     if: ${{ github.event_name == 'push' && github.repository_owner == 'HXSecurity' }}
     runs-on: ubuntu-latest
